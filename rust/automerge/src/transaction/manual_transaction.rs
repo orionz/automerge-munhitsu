@@ -375,8 +375,9 @@ impl<'a, Obs: observation::Observation> Transactable for Transaction<'a, Obs> {
         name: &str,
         start: usize,
         end: usize,
+        expand: ExpandMark,
     ) -> Result<(), AutomergeError> {
-        self.do_tx(|tx, doc, obs| tx.unmark(doc, obs, obj.as_ref(), name, start, end))
+        self.do_tx(|tx, doc, obs| tx.unmark(doc, obs, obj.as_ref(), name, start, end, expand))
     }
 
     fn base_heads(&self) -> Vec<ChangeHash> {

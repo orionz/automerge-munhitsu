@@ -685,6 +685,7 @@ impl<Obs: Observation> Transactable for AutoCommitWithObs<Obs> {
         key: &str,
         start: usize,
         end: usize,
+        expand: ExpandMark,
     ) -> Result<(), AutomergeError> {
         self.ensure_transaction_open();
         let (current, tx) = self.transaction.as_mut().unwrap();
@@ -695,6 +696,7 @@ impl<Obs: Observation> Transactable for AutoCommitWithObs<Obs> {
             key,
             start,
             end,
+            expand,
         )
     }
 
