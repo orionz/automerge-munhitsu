@@ -159,7 +159,7 @@ pub trait ReadDoc {
     fn text_address_to_position<O: AsRef<ExId>>(
         &self,
         obj: O,
-        address: ExId
+        address: &ExId
     ) -> Result<usize, AutomergeError>;
 
 
